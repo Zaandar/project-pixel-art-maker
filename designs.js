@@ -34,14 +34,16 @@ function makeGrid() {
     let row = $('<tr></tr>');
     grid.append(row);
 
-    for (let c = 0; c < selectedWidth; c++) {
+    let c = 0;
+    while (c < selectedWidth){
       let column = $('<td></td>');
       row.append(column);
+      c++;
     }
   }
 
   // change the color of the block the user just clicked on
-  $('td').click(function() {  
-    $(this).css("background-color", selectedColor);
+  $('td').click(function() {
+      $(this).css("background-color", selectedColor);
   });
 }
