@@ -16,19 +16,20 @@ $('#input_width').on('input', function() {
 });
 
 // When size is submitted by the user, call makeGrid()
-$('#sizePicker').on('submit', function() {
+$('#sizePicker').submit(function() {
   event.preventDefault();
   makeGrid();
 });
 
 function makeGrid() {
-
+  // get the table
   let grid = $('#pixel_canvas');
 
   // clear prior table, if any
   contents = grid.find('*');
   contents.remove();
 
+  // create rows and columns
   for (let r = 0; r < selectedHeight; r++) {
     let row = $('<tr></tr>');
     grid.append(row);
@@ -39,6 +40,8 @@ function makeGrid() {
     }
   }
 
-    // $('tr,td').css("border-color", selectedColor);
-    $('td').css("background-color", selectedColor);
+  // change the color of the block the user just clicked on
+  $('td').click(function() {  
+    $(this).css("background-color", selectedColor);
+  });
 }
