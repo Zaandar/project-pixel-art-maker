@@ -30,6 +30,7 @@ function makeGrid() {
   contents.remove();
 
   // create rows and columns
+  // could have used insertRow() and insertCell()
   for (let r = 0; r < selectedHeight; r++) {
     let row = $('<tr></tr>');
     grid.append(row);
